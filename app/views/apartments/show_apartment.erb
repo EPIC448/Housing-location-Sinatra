@@ -1,0 +1,21 @@
+  <h4> Show create  apartment page </h4>
+
+   <h3>We are here the show apartment</h3>
+
+
+<form action="/apartments/<%=@apartment.id%>/delete" method="post">
+<!-- we had the delete buttom in here -->
+
+       <input type="hidden" name="_method" value="delete">
+     <p>LatestApartments: <%= @apartment.location%></p>
+
+
+   <p><a href="/apartments/<%=@apartment.id%>/edit">Edit Apartment</a> </p>
+   <h4>Delete Apartment</h4>
+      <input type="submit" value="Delete Apartment">
+
+   </form>
+   
+ <%if logged_in?%>
+    <a href= "/apartments"> Click to see all apartment location</a>
+     <%end%>

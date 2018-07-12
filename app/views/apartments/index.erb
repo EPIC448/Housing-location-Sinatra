@@ -1,0 +1,25 @@
+  <h4> list all  available apartment page </h4>
+
+  <%if logged_in?%>
+
+     <h2>Welcome: <%= current_user.name %></h2>
+      <!-- # we use our current_user method here. -->
+      <!-- notes:  iterate to show all tweets -->
+      <%@apartments.each do |apartment| %>
+       
+        <a href="/apartments/<%=apartment.id%>"><h3> Apartments:  <%=apartment.location%> </h3> </a>
+          
+          <%end%>
+
+  <%else%>
+     <%'/login'%>
+      <!-- closes the if statament -->
+  <%end%>
+<br>
+
+<h4>Create a New Apartment</h4>
+    <a href="/apartments/new">Create New Apartment</a>
+<br>
+</br>
+
+  <a href="/logout">Log Out</a>
