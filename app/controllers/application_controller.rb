@@ -22,6 +22,7 @@ class ApplicationController < Sinatra::Base
 
     def logged_in?
       !!current_user    #well always yeild false
+      #   Only deliveres true or false... no extras..
     end
 
 

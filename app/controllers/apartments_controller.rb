@@ -29,11 +29,13 @@ class ApartmentsController < ApplicationController
   end
 
   post '/apartments' do
-    @apartment = Apartment.new(params)
-    @user = current_user
+    # @apartment = Apartment.new(params)
+    # @user = current_user
+    # combine the two lines of code above into one:
+    @apartment =  current_user.apartments.build
     #check if apartment is empty.
     if logged_in? && !@apartment.location.blank? && @apartment.save
-      @user.apartments << @apartment
+      # @user.apartments << @apartment
       redirect to "/apartments/#{@apartment.id}"  # target Id of specific apartments.
     else
       redirect "/apartments/new"  #this is a route
