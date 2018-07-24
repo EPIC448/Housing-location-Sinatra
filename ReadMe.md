@@ -15,3 +15,11 @@
       # use the blank lines spanrly
       # remove all commented out code.
       # verbage =  Watch your time and dont deep done details
+
+      
+
+
+        # asign @user to current user
+    # combine the two lines of code above into one:
+    # >>>> this is another way to write the above.# @apartment =  current_user.apartments.build <<<<<<<
+ 

@@ -22,7 +22,7 @@ class ApartmentsController < ApplicationController
   get '/apartments/new' do
     if logged_in?
       @user = current_user
-      erb :'/apartments/create_apartment'
+      erb :'/apartments/new'
     else
       redirect "/login"
     end
@@ -30,11 +30,7 @@ class ApartmentsController < ApplicationController
 
   post '/apartments' do
     @apartment = Apartment.new(params)
-    @user = current_user # asign @user to current user
-
-    # combine the two lines of code above into one:
-    # >>>> this is another way to write the above.# @apartment =  current_user.apartments.build <<<<<<<
- 
+    @user = current_user 
     if logged_in? && !@apartment.location.blank? && @apartment.save
       # @user.apartments << @apartment
       redirect to "/apartments/#{@apartment.id}"  # target Id of specific apartments.
@@ -43,61 +39,46 @@ class ApartmentsController < ApplicationController
     end
   end
 
-  #  Change in view... Create to new. & Take out _apartments... for new, show, edit..
-
   get "/apartments/:id" do
     if logged_in?
       @apartment = Apartment.find_by_id(params[:id])
-      erb :'/apartments/show_apartment' 
+      erb :'/apartments/show' 
     else
       redirect to "/login"
     end
-
   end
 
 
   get '/apartments/:id/edit' do  # say / 
-
      if logged_in?
     @apartment = Apartment.find_by_id(params[:id]) 
-    erb :'/apartments/edit_apartment'
+    erb :'/apartments/edit'
    else
-
     redirect to "/login"
-
     end
-
   end
 
-  # <this connect here
 
   patch "/apartments/:id" do
     @apartment = Apartment.find(params[:id])
-
-        if logged_in? && !params[:location].blank?
-           @apartment.update(location: params[:location])  # shovel in Title into figure.titles to be used in the views folder
-        # :Note I can explicit with each.. but figures contains everthing already
+      if logged_in? && !params[:location].blank?
+        @apartment.update(location: params[:location])             
         @apartment.save
-
         redirect to "/apartments/#{@apartment.id}"
       else
         redirect to "/apartments/#{@apartment.id}/edit"
       end
-
     end
 
 
   delete "/apartments/:id/delete" do
     @apartment = Apartment.find_by_id(params[:id])
-
     if logged_in? && @apartment.user == current_user
       @apartment.delete
       redirect to '/apartments'
-
     else
       redirect to "/login"
     end
-
   end
 
 

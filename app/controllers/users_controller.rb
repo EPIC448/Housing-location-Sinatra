@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
     get '/signup' do
       if !logged_in?
-        erb :'users/create_user', locals: {message: "Please sign up before you sign in"}
+        erb :'users/new_user', locals: {message: "Please sign up before you sign in"}
       else
         redirect to '/apartments'
       end
@@ -28,12 +28,7 @@ class UsersController < ApplicationController
     end
   
   
-    # >>>>>Log in part<<<
-  
-    # Dummy log in data   "name"=>"becky567", "password"=>"kittens"
-  
     get '/login' do
-  
       if !logged_in?
         erb :'/users/login'
       else
@@ -58,12 +53,9 @@ class UsersController < ApplicationController
   
   
     get '/logout' do
-  
       if !logged_in?
         redirect '/'
       else
-        # log user out by clearing the session
-  
         session.clear
         redirect to "/login"
       end
@@ -71,11 +63,8 @@ class UsersController < ApplicationController
   
   
     get "/users/:id" do
-  
       @user = User.find_by_id(params[:id])
-  
       erb :'/users/show'
-  
     end
   
 
