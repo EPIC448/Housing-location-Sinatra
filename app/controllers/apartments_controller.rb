@@ -9,7 +9,7 @@ class ApartmentsController < ApplicationController
 
   get '/apartments' do
     if logged_in?
-      @users = current_user
+      @users = current_user  # check to make users singluar
       @apartments = Apartment.all
       erb :'/apartments/index'
     else
@@ -29,8 +29,9 @@ class ApartmentsController < ApplicationController
   end
 
   post '/apartments' do
-     @apartment = Apartment.new(params)
-    @user = current_user
+    @apartment = Apartment.new(params)
+    @user = current_user # asign @user to current user
+
     # combine the two lines of code above into one:
     # >>>> this is another way to write the above.# @apartment =  current_user.apartments.build <<<<<<<
  
@@ -42,11 +43,12 @@ class ApartmentsController < ApplicationController
     end
   end
 
+  #  Change in view... Create to new. & Take out _apartments... for new, show, edit..
 
   get "/apartments/:id" do
     if logged_in?
       @apartment = Apartment.find_by_id(params[:id])
-      erb :'/apartments/show_apartment'
+      erb :'/apartments/show_apartment' 
     else
       redirect to "/login"
     end
@@ -54,7 +56,7 @@ class ApartmentsController < ApplicationController
   end
 
 
-  get '/apartments/:id/edit' do
+  get '/apartments/:id/edit' do  # say / 
 
      if logged_in?
     @apartment = Apartment.find_by_id(params[:id]) 

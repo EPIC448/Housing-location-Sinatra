@@ -1,13 +1,14 @@
 class UsersController < ApplicationController
 
     configure do
-      enable :sessions
+      enable :sessions 
+      # Session is an object like hash that stores data describing a clients interaction with a website as a given point in time…
       set :session_secret, "secret"
     end
 
+   # note...  Explain straigh through
 
     get '/signup' do
-
       if !logged_in?
         erb :'users/create_user', locals: {message: "Please sign up before you sign in"}
       else
@@ -16,11 +17,8 @@ class UsersController < ApplicationController
     end
   
     post '/signup' do
-  
       if params[:name] == "" || params[:email] == "" || params[:password] == ""
-  
         redirect to '/signup'
-  
       else
         @user = User.new(:name => params[:name], :email => params[:email], :password => params[:password])
         @user.save
@@ -38,10 +36,8 @@ class UsersController < ApplicationController
   
       if !logged_in?
         erb :'/users/login'
-  
       else
         redirect '/apartments'  #apartments control
-  
       end
     end
   
