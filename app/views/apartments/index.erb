@@ -1,9 +1,9 @@
-  <h4> Showing all apartments locations </h4>
+  <h4>  All apartments locations </h4>
   <%if logged_in?%>
      
      <h2>Welcome: <%= current_user.name %></h2>
       <%@apartments.each do |apartment| %>
-        <a href="/apartments/<%=apartment.id%>"><h3> Apartments:  <%=apartment.location%> </h3> </a>
+        <a href="/apartments/<%=apartment.id%>"><h3> Apartment-location:  <%=apartment.location%> </h3> </a>
       <%end%>
 
   <%else%>
