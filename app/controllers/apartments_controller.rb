@@ -40,7 +40,7 @@ class ApartmentsController < ApplicationController
   end
 
   get "/apartments/:id" do
-    if logged_in? && @apartment.user == current_user
+    if logged_in? 
       @apartment = Apartment.find_by_id(params[:id])
       erb :'/apartments/show' 
     else
@@ -50,7 +50,7 @@ class ApartmentsController < ApplicationController
 
 
   get '/apartments/:id/edit' do  
-     if logged_in? && @apartment.user == current_user
+     if logged_in? 
     @apartment = Apartment.find_by_id(params[:id]) 
     erb :'/apartments/edit'
    else
@@ -66,7 +66,8 @@ class ApartmentsController < ApplicationController
         @apartment.save
         redirect to "/apartments/#{@apartment.id}"
       else
-        redirect to "/apartments/#{@apartment.id}/edit"
+        # redirect to "/apartments/#{@apartment.id}/edit", locals: {message: "You can't edit this location"}
+       redirect to "/apartments"
       end
     end
 
