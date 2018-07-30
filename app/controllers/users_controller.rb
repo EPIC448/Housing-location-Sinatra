@@ -2,11 +2,9 @@ class UsersController < ApplicationController
 
     configure do
       enable :sessions 
-      # Session is an object like hash that stores data describing a clients interaction with a website as a given point in time…
       set :session_secret, "secret"
     end
 
-   # note...  Explain straigh through
 
     get '/signup' do
       if !logged_in?
@@ -37,12 +35,10 @@ class UsersController < ApplicationController
     end
   
   
-    #session goes here.
   
     post '/login' do
-      #handles logged in input of user from the params / Match that infor
-      # with existing entries in the user database.
-      user = User.find_by(:name => params[:name])  # Take name to get users  name
+      
+      user = User.find_by(:name => params[:name])  
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
         redirect to '/apartments'

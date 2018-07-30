@@ -9,7 +9,7 @@ class ApartmentsController < ApplicationController
 
   get '/apartments' do
     if logged_in?
-      @users = current_user  # check to make users singluar
+      @users = current_user  
       @apartments = Apartment.all
       erb :'/apartments/index'
     else
@@ -33,14 +33,14 @@ class ApartmentsController < ApplicationController
     @user = current_user 
     if logged_in? && !@apartment.location.blank? && @apartment.save
       # @user.apartments << @apartment
-      redirect to "/apartments/#{@apartment.id}"  # target Id of specific apartments.
+      redirect to "/apartments/#{@apartment.id}"  
     else
-      redirect "/apartments/new"  #this is a route
+      redirect "/apartments/new"  
     end
   end
 
   get "/apartments/:id" do
-    if logged_in?
+    if logged_in? && @apartment.user == current_user
       @apartment = Apartment.find_by_id(params[:id])
       erb :'/apartments/show' 
     else
@@ -49,8 +49,8 @@ class ApartmentsController < ApplicationController
   end
 
 
-  get '/apartments/:id/edit' do  # say / 
-     if logged_in?
+  get '/apartments/:id/edit' do  
+     if logged_in? && @apartment.user == current_user
     @apartment = Apartment.find_by_id(params[:id]) 
     erb :'/apartments/edit'
    else
@@ -61,7 +61,7 @@ class ApartmentsController < ApplicationController
 
   patch "/apartments/:id" do
     @apartment = Apartment.find(params[:id])
-      if logged_in? && !params[:location].blank?
+      if logged_in? && !params[:location].blank? && @apartment.user == current_user
         @apartment.update(location: params[:location])             
         @apartment.save
         redirect to "/apartments/#{@apartment.id}"
@@ -82,4 +82,4 @@ class ApartmentsController < ApplicationController
   end
 
 
-end # for the apartment class.
+end #end of class method
