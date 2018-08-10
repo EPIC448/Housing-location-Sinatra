@@ -20,7 +20,8 @@ class UsersController < ApplicationController
       else
         @user = User.new(:name => params[:name], :email => params[:email], :password => params[:password])
         @user.save
-        session[:user_id] = @user.id
+        session[:user_id] = @user.id 
+        #tells us who is using the session...
         redirect to '/apartments'
       end
     end
