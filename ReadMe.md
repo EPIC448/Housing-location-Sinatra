@@ -1,25 +1,9 @@
-  Notes to self....
-    I need to Talk through my code...  Important ...
-     Find a video on this and maybe watch a sintra video....
-     
-     ### The flow of the request is important.\\
 
 
-     # SUGGESTION
+This Sinatra Project demostrated the users ability to have many apartment in different location and an apartment can only have one User or Owner through the CRUD and MVC Sinatra application.
+  > Has_many and Belong_to  were used to indicate the relationships between the User, locations and the Aparaments
+  > A user 
 
-     #  70% in browser on how the app works... 
-      # only use code for specific for insteresting things / cool stuff.
-      # change the views...
-      # remove the commments in the code
-      # indentation is nice.
-      # use the blank lines spanrly
-      # remove all commented out code.
-      # verbage =  Watch your time and dont deep done details
-
-      
-
-
-        # asign @user to current user
-    # combine the two lines of code above into one:
-    # >>>> this is another way to write the above.# @apartment =  current_user.apartments.build <<<<<<<
- 
+A user is able to create an account, sign up, sign in, and sign out of there account using validation through email, or Username and Password
+Once logged in, a user has an ability to create, read, update and destroy the resource that belongs_to user. [A user can no delete another user aparmtent information]. Furthermore, A logged in User can  edit and delete only their own information - not information created by other users.
+ Also, Validation was used to prevent  bad data will not  be persisted to the database.
