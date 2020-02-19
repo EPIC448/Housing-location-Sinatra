@@ -45,13 +45,13 @@ $ git clone https://github.com/EPIC448/Housing-location-Sinatra
 
 SetUp
  To run this project, install it locally using rails s
-   $cd.. <folder where it is coned> ;
+   $cd.. <folder where it is coned></folder> ;
    $ rails server;
   
   There are no Test file for this App. 
-  
- THE App uses. 
-  > Has_many and Belong_to  were used to indicate the relationships between the User, locations and the Aparaments
+
+Features 
+> Has_many and Belong_to  were used to indicate the relationships between the User, locations and the Aparaments
   > A user 
  
 
