@@ -5,6 +5,11 @@
 This Sinatra Project demostrated the users ability to have many apartment in different location and an apartment can only have one User or Owner through the CRUD and MVC Sinatra application.
 
 
+A user is able to create an account, sign up, sign in, and sign out of there account using validation through email, or Username and Password
+Once logged in, a user has an ability to create, read, update and destroy the resource that belongs_to user. [A user can no delete another user aparmtent information]. Furthermore, A logged in User can  edit and delete only their own information - not information created by other users.
+ Also, Validation was used to prevent  bad data will not  be persisted to the database.
+
+
 Getting Started
  Hint: If you dont have  gitHub account, You will need to create one to use this App so it can be cloned. 
  
@@ -25,19 +30,46 @@ Change the current working directory to the location where you want the cloned d
 
 Type git clone, and then paste the URL you copied in Step 2.
 
-$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+$ git clone https://github.com/EPIC448/Housing-location-Sinatra
 Press Enter. Your local clone will be created.
 
-$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
-> Cloning into `Spoon-Knife`...
+$ git clone https://github.com/EPIC448/Housing-location-Sinatra
+
+> Cloning into `Hosing-location-Sinatra`...
 > remote: Counting objects: 10, done.
 > remote: Compressing objects: 100% (8/8), done.
 > remove: Total 10 (delta 1), reused 10 (delta 1)
 > Unpacking objects: 100% (10/10), done.
 
+  
+  There are no Test file for this App. 
+  
+ THE App uses. 
   > Has_many and Belong_to  were used to indicate the relationships between the User, locations and the Aparaments
   > A user 
+ 
 
-A user is able to create an account, sign up, sign in, and sign out of there account using validation through email, or Username and Password
-Once logged in, a user has an ability to create, read, update and destroy the resource that belongs_to user. [A user can no delete another user aparmtent information]. Furthermore, A logged in User can  edit and delete only their own information - not information created by other users.
- Also, Validation was used to prevent  bad data will not  be persisted to the database.
+ GEMS
+
+  'sinatra'
+ 'activerecord', '4.2.5', :require => 'active_record'
+ 'sinatra-activerecord', :require => 'sinatra/activerecord'
+ 'rake'
+ 'require_all'
+ 'sqlite3'
+ 'thin'
+ 'shotgun'
+ 'pry'
+ 'bcrypt'
+ "tux"
+
+ Languages
+
+Built with
+Sinatra
+Ruby
+HTML
+CSS
+
+Author
+ Samuel.O
