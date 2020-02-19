@@ -11,6 +11,7 @@ Once logged in, a user has an ability to create, read, update and destroy the re
 
 
 Getting Started
+
  Hint: If you dont have  gitHub account, You will need to create one to use this App so it can be cloned. 
  
 
@@ -41,6 +42,11 @@ $ git clone https://github.com/EPIC448/Housing-location-Sinatra
 > remove: Total 10 (delta 1), reused 10 (delta 1)
 > Unpacking objects: 100% (10/10), done.
 
+
+SetUp
+ To run this project, install it locally using rails s
+   $cd.. <folder where it is coned>
+   $ rails server
   
   There are no Test file for this App. 
   
@@ -63,13 +69,18 @@ $ git clone https://github.com/EPIC448/Housing-location-Sinatra
  'bcrypt'
  "tux"
 
- Languages
+ Technologies
 
 Built with
 Sinatra
 Ruby
 HTML
 CSS
+
+Deployment
+
+Project Status
+ This is still a proejct in the making. this project may get refacotred at a later date. 
 
 Author
  Samuel.O
