@@ -45,8 +45,8 @@ $ git clone https://github.com/EPIC448/Housing-location-Sinatra
 
 SetUp
  To run this project, install it locally using rails s
-   $cd.. <folder where it is coned>
-   $ rails server
+   $cd.. <folder where it is coned> ;
+   $ rails server;
   
   There are no Test file for this App. 
   
